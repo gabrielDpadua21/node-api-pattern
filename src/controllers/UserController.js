@@ -1,3 +1,5 @@
+'use strict';
+
 const UserRepository = require('../repositorys/UserRepository');
 const TryCatch = require('../utils/TryCatch');
 

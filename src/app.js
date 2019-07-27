@@ -12,7 +12,7 @@ class AppController{
     }
 
     dataBase() {
-        this.mongoose.connect('mongodb://0.0.0.0:27017/mybase', {useNewUrlParser: true});
+        this.mongoose.connect('mongodb://mongodb:27017/mybase', {useNewUrlParser: true});
     }
 
     middlewares() {
