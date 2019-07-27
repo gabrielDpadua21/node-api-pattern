@@ -7,12 +7,20 @@ class UserRepository {
     }
 
     findAll(page) {
-        return this.model.paginate({}, {page: page, limit: 10})
+        return this.model.paginate({}, {page: page, limit: 10});
     }
 
-    create(user) {
-        return this.model.create(user)
+    findById(_id) {
+        return this.model.findById(_id);
     }
+
+    create(collection) {
+        return this.model.create(collection);
+    }
+
+    update(_id, collection) {
+        return this.model.findByIdAndUpdate(_id, collection, {new: true});
+    } 
 }
 
 module.exports = new UserRepository;

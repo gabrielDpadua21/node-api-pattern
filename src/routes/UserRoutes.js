@@ -8,6 +8,8 @@ UserRoutes.get('/teste', (req, res) => {
 })
 
 UserRoutes.get('/users', UserController.getAll);
+UserRoutes.get('/users/:id', UserController.getById);
 UserRoutes.post('/users', UserController.create);
+UserRoutes.put('/users/:id', UserController.update);
 
 module.exports = UserRoutes;
