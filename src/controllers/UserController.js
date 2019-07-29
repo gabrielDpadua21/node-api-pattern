@@ -1,4 +1,7 @@
+'use strict';
+
 const UserRepository = require('../repositorys/UserRepository');
+const TryCatch = require('../utils/TryCatch');
 
 class UserController {
 
@@ -7,25 +10,24 @@ class UserController {
     async getAll(req, res) {
         const {page = 1} = req.query;
 
-        try {
-            const users = await UserRepository.findAll(page);
+        return TryCatch
+                    .tryAwait(UserRepository.findAll(page), res);
+    }
 
-            return res.status(200).json(users);
-
-        } catch(err) {
-            return res.status(400).json({"error": err})
-        }
+    async getById(req, res) {
+        return TryCatch
+                    .tryAwait(UserRepository.findById(req.params.id), res);    
     }
 
     async create(req, res) {
-        try {
-            const user = await UserRepository.create(req.body);
-
-            return res.status(200).json(user);
-        } catch(err) {
-            return res.status(400).json({"error": err});
-        }
+        return TryCatch
+                    .tryAwait(UserRepository.create(req.body), res);
     }
+    
+    async update(req, res) {
+        return TryCatch
+                    .tryAwait(UserRepository.update(req.params.id, req.body), res);
+    } 
 }
 
 module.exports = new UserController();
