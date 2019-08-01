@@ -16,6 +16,7 @@ class AppController {
         this.mongoose = mongoose;
 
         this.middlewares();
+        this.openRoutes();
         this.routes();
         this.dataBase();
     }
@@ -28,9 +29,12 @@ class AppController {
         this.express.use(express.json());
     }
 
+    openRoutes() {
+        this.express.use(require('./routes/LoginRoutes'))
+    }
+
     routes() {
         this.express.use(require('./routes/UserRoutes'))
-        this.express.use(require('./routes/LoginRoutes'))
     }
 }
 
