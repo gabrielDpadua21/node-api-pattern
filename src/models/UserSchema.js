@@ -14,8 +14,8 @@ const UserSchema = new mongoose.Schema({
     },
     password: {
         type: String,
+        select: false,
         required: [true, "password is required"],
-        select: false
     },
     created: {
         type: Date,
@@ -25,7 +25,7 @@ const UserSchema = new mongoose.Schema({
         type: Date,
         default: Date.now()
     }
-}, {versionKey: false})
+}, { versionKey: false })
 
 UserSchema.plugin(paginate);
 

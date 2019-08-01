@@ -1,7 +1,9 @@
 'use strict';
 
+const EnvFile = require('./utils/EnvFiles');
+
 require('dotenv').config({
-    path: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env'
+    path: EnvFile.CheckEnvFiles(process.env.NODE_ENV)
 })
 
 const express = require('express');
@@ -14,6 +16,7 @@ class AppController {
         this.mongoose = mongoose;
 
         this.middlewares();
+        this.openRoutes();
         this.routes();
         this.dataBase();
     }
@@ -24,6 +27,10 @@ class AppController {
 
     middlewares() {
         this.express.use(express.json());
+    }
+
+    openRoutes() {
+        this.express.use(require('./routes/LoginRoutes'))
     }
 
     routes() {
