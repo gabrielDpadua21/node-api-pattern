@@ -1,18 +1,27 @@
+'use strict';
+
+const EnvFile = require('./utils/EnvFiles');
+
+require('dotenv').config({
+    path: EnvFile.CheckEnvFiles(process.env.NODE_ENV)
+})
+
 const express = require('express');
 const mongoose = require('mongoose');
+const database = require('./config/database');
 
-class AppController{
+class AppController {
     constructor() {
         this.express = express();
         this.mongoose = mongoose;
-        
+
         this.middlewares();
         this.routes();
-        this.dataBase();   
+        this.dataBase();
     }
 
     dataBase() {
-        this.mongoose.connect('mongodb://0.0.0.0:27017/mybase', {useNewUrlParser: true});
+        this.mongoose.connect(`mongodb://${database.host}:${database.port}/${database.base}`, { useNewUrlParser: true });
     }
 
     middlewares() {

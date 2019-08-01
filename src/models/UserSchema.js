@@ -1,3 +1,5 @@
+'use struct';
+
 const mongoose = require('mongoose');
 const paginate = require('mongoose-paginate');
 
