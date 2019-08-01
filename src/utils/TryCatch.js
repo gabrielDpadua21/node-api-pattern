@@ -3,14 +3,14 @@
 const Callback = require('./Callback');
 
 class AsyncTryCatch {
-    constructor(){}
+    constructor() { }
 
     async tryAwait(promisseFunction, res) {
         try {
             const data = await promisseFunction
 
             return res.status(200).json(data);
-        } catch(err) {
+        } catch (err) {
 
             console.log(err);
 

@@ -1,7 +1,9 @@
 'use strict';
 
+const EnvFile = require('./utils/EnvFiles');
+
 require('dotenv').config({
-    path: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env'
+    path: EnvFile.CheckEnvFiles(process.env.NODE_ENV)
 })
 
 const express = require('express');
