@@ -7,7 +7,7 @@ class AsyncTryCatch {
 
     async tryAwait(promisseFunction, res) {
         try {
-            const data = await promisseFunction
+            const data = await promisseFunction;
 
             return res.status(200).json(data);
         } catch (err) {
@@ -15,6 +15,19 @@ class AsyncTryCatch {
             console.log(err);
 
             return res.status(400).json(err);
+        }
+    }
+
+    async tryCallback(promisseFunction) {
+        try {
+
+            const data = await promisseFunction;
+
+            return data;
+        } catch (err) {
+
+            return { "error": true, "Msg": err }
+
         }
     }
 }

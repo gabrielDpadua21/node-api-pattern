@@ -30,6 +30,7 @@ class AppController {
 
     routes() {
         this.express.use(require('./routes/UserRoutes'))
+        this.express.use(require('./routes/LoginRoutes'))
     }
 }
 
