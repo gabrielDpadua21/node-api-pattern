@@ -22,7 +22,7 @@ class LoginController {
 
         user.password = undefined;
 
-        return res.status(200).json({ "user": user, "token": TokenJWT.generateToken(user._id) });
+        return res.status(200).json({ "user": user, "token": TokenJWT.generateToken(user._id, user.email, user.name) });
     }
 }
 

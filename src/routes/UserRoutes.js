@@ -6,7 +6,7 @@ const Middleware = require('../middlewares/Middlewares');
 
 // ROTAS DE USUÁRIOS
 
-UserRoutes.use(Middleware.authentication)
+//UserRoutes.use(Middleware.authentication)
 
 UserRoutes.get('/users', UserController.getAll);
 UserRoutes.get('/users/:id', UserController.getById);

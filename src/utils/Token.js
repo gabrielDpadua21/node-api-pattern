@@ -4,8 +4,8 @@ const auth = require('../config/auth');
 class TokenJWT {
     constructor() { }
 
-    generateToken(_id) {
-        return jwt.sign({ id: _id }, auth.secret, {
+    generateToken(_id, email, name) {
+        return jwt.sign({ id: _id, email: email, name: name }, auth.secret, {
             expiresIn: 86400
         })
     }

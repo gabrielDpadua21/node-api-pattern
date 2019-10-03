@@ -9,6 +9,7 @@ require('dotenv').config({
 const express = require('express');
 const mongoose = require('mongoose');
 const database = require('./config/database');
+const log4js = require('log4js');
 
 class AppController {
     constructor() {
